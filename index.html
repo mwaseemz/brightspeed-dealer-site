@@ -112,6 +112,23 @@
   .hero-card .new-only{display:inline-block;background:var(--acc-soft);color:var(--acc-ink);font-weight:800;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;padding:5px 12px;border-radius:999px;margin-bottom:12px}
   .hero-card .existing{margin:14px 0 0;padding:12px 14px;background:var(--soft);border-radius:12px;font-size:.86rem;color:var(--ink2);line-height:1.45}
   .hero-card .existing a{font-weight:800;white-space:nowrap}
+  /* "Call me back" form (assets/lead.js posts it to the Home Fiber Check Leads Apps Script) */
+  .or{display:flex;align-items:center;gap:12px;color:var(--muted);font-size:.85rem;font-weight:700;margin:18px 0 12px}
+  .or::before,.or::after{content:"";flex:1;height:1px;background:var(--line)}
+  form.lead{text-align:left;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  form.lead .full{grid-column:1/-1}
+  form.lead p{margin:0}
+  form.lead label{font-size:.78rem;font-weight:700;color:var(--ink2);display:block;margin-bottom:3px}
+  form.lead input,form.lead select{width:100%;padding:11px 12px;border:1px solid #CFD3DC;border-radius:10px;font:inherit;font-size:.95rem;color:var(--ink);background:#fff}
+  form.lead input:focus,form.lead select:focus{outline:2px solid var(--acc);border-color:var(--acc)}
+  form.lead .hp{position:absolute;left:-9999px}
+  form.lead .consent{font-size:.72rem;color:#80868B;line-height:1.45}
+  form.lead button{width:100%;padding:14px}
+  form.lead.sent .field,form.lead.sent button,form.lead.sent .consent{display:none}
+  .form-msg{grid-column:1/-1;font-size:.88rem;font-weight:600}
+  .form-msg.ok{color:#0B7A44;background:#E6F6EC;padding:10px 12px;border-radius:10px}
+  .form-msg.err{color:#B42318}
+  @media(max-width:420px){form.lead{grid-template-columns:1fr}}
   @media(max-width:900px){.hero{padding:44px 0 56px}.hero .container{grid-template-columns:1fr;gap:34px}.hero h1{font-size:2.3rem}.hero p.lead{font-size:1.06rem}.hero .cta-row .btn{width:100%}}
 
   .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
@@ -234,6 +251,18 @@
       <p>Have your service address ready. Most calls take about 10 minutes.</p>
       <a class="num" href="tel:+18887253056">(888) 725-3056</a>
       <a class="btn btn-ink btn-lg" href="tel:+18887253056"><svg class="ph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Tap to Call Now</a>
+      <div class="or">or get a call back</div>
+      <form class="lead" novalidate>
+        <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name" required></div>
+        <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required></div>
+        <div class="field full"><label for="f-addr">Service address</label><input id="f-addr" name="address" autocomplete="street-address" placeholder="Street address, city" required></div>
+        <div class="field"><label for="f-zip">ZIP</label><input id="f-zip" name="zip" inputmode="numeric" autocomplete="postal-code" maxlength="5" required></div>
+        <div class="field"><label for="f-time">Best time</label><select id="f-time" name="time"><option>As soon as possible</option><option>Morning</option><option>Afternoon</option><option>Evening</option></select></div>
+        <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <p class="consent full">By clicking &ldquo;Call me back&rdquo;, you agree that E Market Hub LLC may call you at the number above about new Brightspeed service, including calls placed with automated technology. Consent is not a condition of purchase. Calls may be recorded.</p>
+        <button class="btn btn-ink full" type="submit">Call me back</button>
+        <p class="form-msg" role="status" aria-live="polite"></p>
+      </form>
       <p class="fine">Mon&ndash;Fri, 10:30am&ndash;7:30pm ET. This line sets up new Brightspeed service only and can't access existing accounts.</p>
       <p class="existing">Already have Brightspeed? For billing, outages or support, call Brightspeed directly at <a href="tel:+18336927773" data-no-track>1-833-692-7773</a>.</p>
     </div>
@@ -333,7 +362,7 @@
       <p>E Market Hub LLC ("we," "us," or "our") respects your privacy. This policy explains what information we collect, how we use it, and the choices you have.</p>
       <h3>Information We Collect</h3>
       <ul>
-        <li><strong>Information you give us on a call:</strong> your name, phone number, email address, service address and the service you want.</li>
+        <li><strong>Information you give us on a call or in our call-back form:</strong> your name, phone number, email address, service address and the service you want.</li>
         <li><strong>Automatic information:</strong> standard web log and advertising data such as IP address, browser type, pages visited, referring URLs, and whether you tapped a phone number after clicking an ad. We use Google advertising and call-tracking tools, which may set cookies.</li>
       </ul>
       <h3>How We Use Your Information</h3>
@@ -430,5 +459,8 @@
   })();
 </script>
 
+<script>window.HFC = { provider: 'Brightspeed', display: '(888) 725-3056', formSendTo: 'AW-18442869490/upJfCLz33JIdEPK1n9pE' };</script>
+<script src="/assets/lead-config.js"></script>
+<script src="/assets/lead.js"></script>
 </body>
 </html>
