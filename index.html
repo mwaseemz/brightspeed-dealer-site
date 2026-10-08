@@ -99,6 +99,7 @@
   .hero h1 em{font-style:normal;color:var(--acc)}
   .hero p.lead{font-size:1.18rem;color:#D4D4D8;margin-bottom:30px;max-width:560px}
   .hero .cta-row{display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin-bottom:26px}
+  .cta-note{font-size:.92rem;font-weight:600;color:rgba(255,255,255,.78);margin:-12px 0 20px}
   .checks{display:flex;gap:10px 24px;flex-wrap:wrap;list-style:none;font-weight:700;font-size:.97rem}
   .checks li{display:flex;align-items:center;gap:8px}
   .checks li::before{content:"";width:20px;height:20px;border-radius:50%;background:var(--acc) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23111111' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center/13px no-repeat}
@@ -130,7 +131,7 @@
   .form-msg.ok{color:#0B7A44;background:#E6F6EC;padding:10px 12px;border-radius:10px}
   .form-msg.err{color:#B42318}
   @media(max-width:420px){form.lead{grid-template-columns:1fr}}
-  @media(max-width:900px){.hero{padding:44px 0 56px}.hero .container{grid-template-columns:1fr;gap:34px}.hero h1{font-size:2.3rem}.hero p.lead{font-size:1.06rem}.hero .cta-row .btn{width:100%}}
+  @media(max-width:900px){.hero{padding:24px 0 50px}.hero .container{grid-template-columns:1fr;gap:34px}.hero .cta-row .btn{width:100%}.hero p.lead{display:none}.hero h1{font-size:2rem;margin-bottom:18px}.status{margin-bottom:14px}.hero .cta-row{margin-bottom:22px}.hero .cta-row .btn{padding:20px 22px;font-size:1.25rem}}
 
   .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
   @media(max-width:1000px){.grid4{grid-template-columns:repeat(2,1fr)}}
@@ -240,6 +241,7 @@
       <div class="cta-row">
         <a class="btn btn-acc btn-lg" href="tel:+18887253056"><svg class="ph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Call (888) 725-3056</a>
       </div>
+      <p class="cta-note">Takes about 10 minutes &middot; new service only</p>
       <ul class="checks">
         <li>Free address check</li>
         <li>No obligation</li>
